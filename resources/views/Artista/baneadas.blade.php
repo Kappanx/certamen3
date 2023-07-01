@@ -28,7 +28,25 @@
                         <h5 class="card-title text-white">{{ $imagen->titulo }}</h5>
                         <p class="card-text text-danger">motivo del ban: {{ $imagen->motivo_ban }}</p>
                         <a href="{{route('Artista.modificar',$imagen->id)}}" class="btn d-grid text-white btn-info mt-2">Modificar</a>
-                        <a href="#" class="btn d-grid text-white btn-warning mt-2">borrar</a>
+                        <button type="button" class="btn btn-danger text-white" data-bs-toggle="modal" data-bs-target="#deleteModal{{$imagen->id}}">borrar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="deleteModal{{ $imagen->id }}" tabindex="-1" aria-labelledby="deleteModalLabel{{ $imagen->id }}" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <form action="{{route('Artista.delete',$imagen->id)}}" method="POST">
+                        @method('delete')
+                        @csrf
+                         <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="deleteModalLabel{{ $imagen->id }}">Esta seguro?</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-danger">Confirmar</button>
+                        </div>
+                        </form>
                     </div>
                 </div>
             </div>

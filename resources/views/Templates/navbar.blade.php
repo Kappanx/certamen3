@@ -43,7 +43,7 @@
                 </li>
                 @elseif(auth()->check() && auth()->user()->perfil_id == 1)
                 <li class="nav-item">
-                    <a class="nav-link" href="#" ><span class="text-white">Cuentas</span></a>
+                    <a class="nav-link" href="{{route('Admin.cuentas')}}" ><span class="text-white">Cuentas</span></a>
                 </li>
                 @endif
                 
@@ -54,7 +54,7 @@
                     <a href="{{route('cuentas.logout')}}" ><button class="btn text-white btn-outline-light" type="submit">Cerrar Sesion</button></a>
                 @elseif(auth()->check() && auth()->user()->perfil_id == 1)
                     <a class="text-white">Sesion de Administrador: {{Auth::user()->nombre}}</a>
-                    <a href="#" ><button class="btn text-white btn-outline-light" type="submit">Ver Cuentas</button></a>
+                    <a href="{{route('Admin.cuentas')}}" ><button class="btn text-white btn-outline-light" type="submit">Ver Cuentas</button></a>
                     <a href="{{route('cuentas.logout')}}" ><button class="btn text-white btn-outline-light" type="submit">Cerrar Sesion</button></a>
                 @else
                     <a href="{{route('Main.login')}}" ><button class="btn text-white btn-outline-light" type="submit">Iniciar Sesion</button></a>

@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\ImagenesRequest;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use Storage;
 use Gate;
 
 class ArtistaController extends Controller
@@ -40,6 +41,14 @@ class ArtistaController extends Controller
         $imagen->titulo = $request->titulo;
         $imagen->save();
         return redirect()->route('Publico.fotos');
+    }
+
+    public function delete(Imagen $imagen)
+    {
+        Storage::delete('user_imgs/' . $imagen->archivo);
+        $imagen -> delete();
+
+        return redirect()->back();
     }
 
     public function store(ImagenesRequest $request)
