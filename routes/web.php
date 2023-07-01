@@ -38,9 +38,9 @@ Route::get('/banear/{imagen}',[AdminController::class,'banear'])->name('Admin.ba
 Route::put('/banear/{imagen}',[AdminController::class,'ban'])->name('Admin.ban');
 Route::put('/desbanear/{imagen}',[AdminController::class,'unban'])->name('Admin.unban');
 Route::get('/usuarios',[AdminController::class,'cuentas'])->name('Admin.cuentas');
-Route::get('/usuarios/modificar/{usuario}/editar',[AdminController::class,'editar'])->name('Admin.editar');
-Route::put('/usuarios/modificar/{usuario}',[AdminController::class,'edit'])->name('Admin.edit');
-Route::delete('/usuarios/{user}',[AdminController::class,'destroy'])->name('Admin.destroy');
+Route::get('/usuarios/modificar/{cuenta}',[AdminController::class,'editar'])->name('Admin.editar');
+Route::put('/usuarios/modificar/{cuenta}',[AdminController::class,'edit'])->name('Admin.edit');
+Route::delete('/usuarios/{cuenta}',[AdminController::class,'destroy'])->name('Admin.destroy');
 
 Route::post('/cuenta/login',[CuentaController::class,'autenticar'])->name('cuentas.autenticar');
 Route::get('/cuenta/logout',[CuentaController::class,'logout'])->name('cuentas.logout');

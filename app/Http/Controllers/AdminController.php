@@ -60,7 +60,7 @@ class AdminController extends Controller
     public function edit(Request $request,Cuenta $cuenta){
         $cuenta->nombre = $request->nombre;
         $cuenta->apellido = $request->apellido;
-        $perfil->perfil_id = $request->perfil_id;
+        $cuenta->perfil_id = $request->perfil_id;
         $cuenta->save();
         return redirect()->route('Publico.fotos');
     }

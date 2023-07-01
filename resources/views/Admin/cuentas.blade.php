@@ -57,7 +57,7 @@
                                     </div>
                                     {{-- Editar --}}
                                     <div class="col text-center">
-                                        <a href="{{ route('Admin.cuentas', $cuenta->user) }}" class="btn btn-info text-white">Editar</a>
+                                        <a href="{{ route('Admin.editar', $cuenta->user) }}" class="btn btn-info text-white">Editar</a>
                                     </div>
                                 </div>
                             </td>
